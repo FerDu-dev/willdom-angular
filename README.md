@@ -1,12 +1,15 @@
 # 🚀 Willdom Angular Management System
 
+---
+
+## English Version
+
 This is a professional management system built with **Angular 19**, **Taiga UI**, **NgRx**, and **Nx**, designed with a modular, scalable architecture and a premium user interface.
 
-## 📋 Product Specifications
-
+### 📋 Product Specifications
 The system enables efficient user management through a fluid interface and highly reusable components.
 
-### Key Features
+#### Key Features
 - **Persistent Authentication**: Secure login with session persistence using `localStorage`. Refreshing the page maintains the active session.
 - **Facade Architecture**: Clear separation between business logic (`UsersFacade`) and identity logic (`AuthFacade`).
 - **Reusable "Dumb" Components**:
@@ -15,52 +18,85 @@ The system enables efficient user management through a fluid interface and highl
   - `SearchComponent` & `PaginationComponent`: Independent search and pagination controls.
 - **Intelligent Routing**: Advanced guards to prevent unauthorized access and automatic redirections based on authentication status.
 
----
+### 🖥️ How to Use (Step-by-Step)
+1. **Login**: 
+   - Enter credentials: `admin@willdom.com` / `admin123`.
+   - The system validates and stores a mock token in `localStorage`.
+2. **Dashboard**: 
+   - A unified view appears with real API data.
+   - You are protected by `AuthGuard`; if you log out or clear storage, you'll be sent back to login.
+3. **Filtering & Search**: 
+   - Use the **Search Bar** to filter by Name, Username, or Email.
+   - Use the **Column Headers** if specific sorting/filtering is required.
+4. **User Details**: 
+   - Click on any row to open the **Detail Modal**.
+   - Review comprehensive data (Address, Company, Geo-location).
+5. **Pagination**: 
+   - Change page size or navigate pages using the bottom controls.
+6. **Data Export**: 
+   - Click the **Export** button to generate a CSV file of your current filtered view.
 
-## 🖥️ How to Use the System
-
-### 1. Login
-- Upon access, you will be greeted by a premium login screen.
-- **Mock Credentials**: 
-  - **Email**: `admin@willdom.com`
-  - **Password**: `admin123`
-- Once logged in, a mock token is generated and stored in the browser. You cannot return to the login page without logging out first.
-
-### 2. Dashboard and List
-- The dashboard centralizes all user information received from the real API.
-- **Global Search**: Use the top search bar to instantly filter by any field (Name, Email, etc.).
-- **Pagination**: Control the number of records per page for an optimized loading experience.
-
-### 3. User Details
-- Click on any row in the table to open the **Detail Modal**.
-- This modal displays complete user information (Address, Company, etc.) in an elegant layout.
-
-### 4. Data Exporting
-- In the dashboard, you will find an **Export** button.
-- Clicking it will automatically generate a CSV file with the user list currently in view (including applied filters).
-
----
-
-## 🛠️ Installation Guide (From Scratch)
-
-To run this project locally, ensure you have **Node.js** installed (version 18 or higher).
-
-1. **Clone/Download the project**
-2. **Install dependencies**:
+### 🛠️ Installation & Running Guide
+1. **Install Dependencies**:
    ```bash
    npm install
    ```
-3. **Run the development server**:
+2. **Launch Dev Server**:
    ```bash
    npx nx serve users-app
    ```
-   The application will be available at `http://localhost:4200`.
-
-4. **Build for production**:
+3. **Build for Production**:
    ```bash
    npx nx build users-app --prod
    ```
 
----
 
-*Developed with ❤️ to demonstrate superior technical Frontend skills.*
+## Versión en Español
+
+Este es un sistema de gestión profesional construido con **Angular 19**, **Taiga UI**, **NgRx** y **Nx**, diseñado con una arquitectura modular, escalable y una interfaz de usuario premium.
+
+### 📋 Especificaciones del Producto
+El sistema permite la gestión eficiente de usuarios a través de una interfaz fluida y componentes altamente reutilizables.
+
+#### Características Principales
+- **Autenticación Persistente**: Inicio de sesión seguro con persistencia mediante `localStorage`. Al refrescar la página, mantienes tu sesión activa.
+- **Arquitectura de Facades**: Separación clara entre la lógica de negocio (`UsersFacade`) y la lógica de identidad (`AuthFacade`).
+- **Componentes "Dumb" Reutilizables**:
+  - `TableComponent`: Tabla genérica con soporte para datos asíncronos y plantillas.
+  - `DetailModalComponent`: Modal de detalle agnóstico al tipo de dato, configurable dinámicamente.
+  - `SearchComponent` & `PaginationComponent`: Controles de búsqueda y paginación independientes.
+- **Enrutamiento Inteligente**: Guards avanzados para evitar accesos no autorizados y redirecciones basadas en el estado.
+
+### 🖥️ Cómo usar el sistema (Paso a Paso)
+1. **Inicio de Sesión**: 
+   - Ingresa credenciales: `admin@willdom.com` / `admin123`.
+   - El sistema valida y guarda un token en `localStorage`.
+2. **Dashboard**: 
+   - Aparece una vista unificada con datos reales del API.
+   - Estás protegido por `AuthGuard`; si cierras sesión, volverás al login automáticamente.
+3. **Filtros y Búsqueda**: 
+   - Usa la **Banda de Búsqueda** para filtrar por nombre, usuario o email.
+   - El filtrado es reactivo y eficiente.
+4. **Detalle de Usuario**: 
+   - Haz clic en cualquier fila para abrir el **Modal de Detalle**.
+   - Revisa datos completos como dirección, empresa y geolocalización.
+5. **Paginación**: 
+   - Cambia el tamaño de página o navega entre ellas con los controles inferiores.
+6. **Exportación**: 
+   - Clica en **Exportar** para generar un archivo CSV con la lista filtrada actual.
+
+### 🛠️ Guía de Instalación y Ejecución
+1. **Instalar Dependencias**:
+   ```bash
+   npm install
+   ```
+2. **Lanzar Servidor de Desarrollo**:
+   ```bash
+   npx nx serve users-app
+   ```
+3. **Construir para Producción**:
+   ```bash
+   npx nx build users-app --prod
+   ```
+
+*Developed with ❤️ to demonstrate superior technical Frontend skills. / Desarrollado con ❤️ para demostrar habilidad técnica superior.*
