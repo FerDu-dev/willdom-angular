@@ -1,0 +1,53 @@
+<div class="dashboard-page">
+    <div class="content-wrapper">
+        <header class="page-header">
+            <div class="page-title-section">
+                <h1>User Management</h1>
+                <p>Monitor and manage your team members effortlessly.</p>
+            </div>
+
+            <div class="header-actions">
+                <button class="export-btn" (click)="exportData()">
+                    <tui-icon icon="@tui.download"></tui-icon>
+                    <span>Export Data</span>
+                </button>
+            </div>
+        </header>
+
+        <section class="dashboard-card main-table-container">
+            <div class="table-header-tools">
+                <app-search placeholder="Search users..." (search)="onSearch($event)"></app-search>
+
+                <app-pagination [length]="(totalPages$ | async) || 1" [index]="(pageIndex$ | async) || 0"
+                    [pageSize]="(pageSize$ | async) || 3" (indexChange)="setPage($event)"
+                    (pageSizeChange)="setPageSize($event)"></app-pagination>
+            </div>
+
+            <tui-loader [overlay]="true" [showLoader]="(loading$ | async) || false">
+                <app-table [data]="(paginatedUsers$ | async) || []" [columns]="tableColumns"
+                    [customTemplates]="{ 'avatar': avatarTmpl, 'username': usernameTmpl }"
+                    (rowClick)="openDetail($event)" (filterChange)="onFilterChange($event)">
+                    <ng-template #avatarTmpl let-user>
+                        <div class="user-info">
+                            <img [src]="'https://i.pravatar.cc/150?u=' + user.id" alt="Profile" class="avatar-img">
+                            <span class="name">{{ user.name }}</span>
+                        </div>
+                    </ng-template>
+
+                    <ng-template #usernameTmpl let-user>
+                        <div class="username-cell">
+                            <span class="username-tag">@{{ user.username }}</span>
+                        </div>
+                    </ng-template>
+                </app-table>
+
+                @if (!(loading$ | async) && ((users$ | async)?.length === 0)) {
+                <div class="empty-state">
+                    <tui-icon icon="@tui.search-x"></tui-icon>
+                    <p>No users found matching your criteria</p>
+                </div>
+                }
+            </tui-loader>
+        </section>
+    </div>
+</div>

@@ -1,0 +1,113 @@
+.dashboard-page {
+    display: flex;
+    min-height: 100vh;
+    padding: 1rem;
+}
+
+.content-wrapper {
+    flex: 1;
+    padding: 40px var(--space-xl);
+    max-width: 1400px;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+
+    h1 {
+        font-size: 2rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        margin: 0 0 8px 0;
+    }
+
+    p {
+        color: var(--text-muted);
+        margin: 0;
+        font-size: 1.1rem;
+    }
+}
+
+.export-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px;
+    background: var(--accent-primary);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+
+    &:hover {
+        background: var(--accent-secondary);
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(var(--accent-primary-rgb), 0.2);
+    }
+}
+
+.dashboard-card {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 24px;
+    padding: var(--space-lg);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.table-header-tools {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+/* Custom styles for slots in app-table */
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    .avatar-img {
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+        object-fit: cover;
+        border: 2px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .name {
+        font-weight: 600;
+        color: white;
+    }
+}
+
+.username-cell {
+    padding-left: 8px;
+}
+
+.username-tag {
+    background: rgba(var(--accent-primary-rgb), 0.1);
+    color: var(--accent-primary);
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid rgba(var(--accent-primary-rgb), 0.2);
+}
+
+.empty-state {
+    padding: var(--space-xl);
+    text-align: center;
+    color: var(--text-muted);
+
+    tui-icon {
+        font-size: 3rem;
+        margin-bottom: var(--space-sm);
+        opacity: 0.3;
+    }
+}

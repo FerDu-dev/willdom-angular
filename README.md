@@ -1,101 +1,94 @@
-# WilldomTestAngular
+# 🚀 Willdom Angular Management System
 
-<a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
+This is a professional management system built with **Angular 19**, **Taiga UI**, **NgRx**, and **Nx**, designed with a modular, scalable architecture and a premium user interface.
 
-✨ Your new, shiny [Nx workspace](https://nx.dev) is ready ✨.
+## 📋 Product Specifications
 
-[Learn more about this workspace setup and its capabilities](https://nx.dev/getting-started/tutorials/angular-monorepo-tutorial?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
+The system enables efficient user management through a fluid interface and highly reusable components.
 
-## Run tasks
+### Key Features
+- **Persistent Authentication**: Secure login with session persistence using `localStorage`. Refreshing the page maintains the active session.
+- **Facade Architecture**: Clear separation between business logic (`UsersFacade`) and identity logic (`AuthFacade`).
+- **Reusable "Dumb" Components**:
+  - `TableComponent`: Generic table supporting asynchronous data and custom cell templates.
+  - `DetailModalComponent`: Data-agnostic detail modal configurable via schemas.
+  - `SearchComponent` & `PaginationComponent`: Independent search and pagination controls.
+- **Intelligent Routing**: Advanced guards to prevent unauthorized access and automatic redirections based on authentication status.
 
-To run the dev server for your app, use:
+---
 
-```sh
-npx nx serve users-app
-```
+## 🖥️ How to Use the System
 
-To create a production bundle:
+### 1. Login
+- Upon access, you will be greeted by a premium login screen.
+- **Mock Credentials**: 
+  - **Email**: `admin@willdom.com`
+  - **Password**: `admin123`
+- Once logged in, a mock token is generated and stored in the browser. You cannot return to the login page without logging out first.
 
-```sh
-npx nx build users-app
-```
+### 2. Dashboard and List
+- The dashboard centralizes all user information received from the real API.
+- **Global Search**: Use the top search bar to instantly filter by any field (Name, Email, etc.).
+- **Pagination**: Control the number of records per page for an optimized loading experience.
 
-To see all available targets to run for a project, run:
+### 3. User Details
+- Click on any row in the table to open the **Detail Modal**.
+- This modal displays complete user information (Address, Company, etc.) in an elegant layout.
 
-```sh
-npx nx show project users-app
-```
+### 4. Data Exporting
+- In the dashboard, you will find an **Export** button.
+- Clicking it will automatically generate a CSV file with the user list currently in view (including applied filters).
 
-These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.
+---
 
-[More about running tasks in the docs &raquo;](https://nx.dev/features/run-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+## 🛠️ Installation Guide (From Scratch)
 
-## Add new projects
+To run this project locally, ensure you have **Node.js** installed (version 18 or higher).
 
-While you could add new projects to your workspace manually, you might want to leverage [Nx plugins](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) and their [code generation](https://nx.dev/features/generate-code?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) feature.
+1. **Clone/Download the project**
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
+3. **Run the development server**:
+   ```bash
+   npx nx serve users-app
+   ```
+   The application will be available at `http://localhost:4200`.
 
-Use the plugin's generator to create new projects.
+4. **Build for production**:
+   ```bash
+   npx nx build users-app --prod
+   ```
 
-To generate a new application, use:
+---
 
-```sh
-npx nx g @nx/angular:app demo
-```
+## 📦 Git Guide: Upload to `willdom-angular`
 
-To generate a new library, use:
+Follow these steps to initialize your local repository and push it to GitHub/GitLab:
 
-```sh
-npx nx g @nx/angular:lib mylib
-```
+1. **Initialize Git**:
+   ```bash
+   git init
+   ```
+2. **Add all files**:
+   ```bash
+   git add .
+   ```
+3. **First Commit**:
+   ```bash
+   git commit -m "feat: initial commit - complete modular architecture with persistent auth"
+   ```
+4. **Add Remote** (Replace with your real URL):
+   ```bash
+   git remote add origin https://github.com/YOUR_USERNAME/willdom-angular.git
+   ```
+5. **Push Changes**:
+   ```bash
+   git branch -M main
+   git push -u origin main
+   ```
 
-You can use `npx nx list` to get a list of installed plugins. Then, run `npx nx list <plugin-name>` to learn about more specific capabilities of a particular plugin. Alternatively, [install Nx Console](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) to browse plugins and generators in your IDE.
+---
 
-[Learn more about Nx plugins &raquo;](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) | [Browse the plugin registry &raquo;](https://nx.dev/plugin-registry?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Set up CI!
-
-### Step 1
-
-To connect to Nx Cloud, run the following command:
-
-```sh
-npx nx connect
-```
-
-Connecting to Nx Cloud ensures a [fast and scalable CI](https://nx.dev/ci/intro/why-nx-cloud?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) pipeline. It includes features such as:
-
-- [Remote caching](https://nx.dev/ci/features/remote-cache?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Task distribution across multiple machines](https://nx.dev/ci/features/distribute-task-execution?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Automated e2e test splitting](https://nx.dev/ci/features/split-e2e-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Task flakiness detection and rerunning](https://nx.dev/ci/features/flaky-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-### Step 2
-
-Use the following command to configure a CI workflow for your workspace:
-
-```sh
-npx nx g ci-workflow
-```
-
-[Learn more about Nx on CI](https://nx.dev/ci/intro/ci-with-nx#ready-get-started-with-your-provider?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Install Nx Console
-
-Nx Console is an editor extension that enriches your developer experience. It lets you run tasks, generate code, and improves code autocompletion in your IDE. It is available for VSCode and IntelliJ.
-
-[Install Nx Console &raquo;](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Useful links
-
-Learn more:
-
-- [Learn more about this workspace setup](https://nx.dev/getting-started/tutorials/angular-monorepo-tutorial?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects)
-- [Learn about Nx on CI](https://nx.dev/ci/intro/ci-with-nx?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Releasing Packages with Nx release](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-And join the Nx community:
-- [Discord](https://go.nx.dev/community)
-- [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
-- [Our Youtube channel](https://www.youtube.com/@nxdevtools)
-- [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+*Developed with ❤️ to demonstrate superior technical Frontend skills.*

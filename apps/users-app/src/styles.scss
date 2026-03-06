@@ -1,0 +1,130 @@
+/* FlowMate & SmartSave Premium SASS Foundation */
+
+/* Typography */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+    /* Colors - Dark Theme (FlowMate Dashboard) */
+    --bg-dark: #0f1114;
+    --bg-sidebar: #17181c;
+    --bg-card: #1c1d22;
+    --bg-card-hover: #26272c;
+    --text-main: #ffffff;
+    --text-muted: #8d8e92;
+    --accent-primary: #8a70d6;
+    /* Purple gradient start */
+    --accent-secondary: #c299ff;
+    /* Purple gradient end */
+    --status-active: #10b981;
+    --status-inactive: #f43f5e;
+    --status-idle: #f59e0b;
+
+    /* Colors - Light Theme (SmartSave Login) */
+    --login-bg: #f8fafc;
+    --login-card: #ffffff;
+    --login-primary: #2563eb;
+    --login-text: #020617;
+    --login-text-muted: #64748b;
+
+    /* Spacing */
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 1.5rem;
+    --space-lg: 2rem;
+    --space-xl: 3rem;
+
+    /* Misc */
+    --border-radius-sm: 0.5rem;
+    --border-radius-md: 1rem;
+    --border-radius-lg: 1.5rem;
+    --border-radius-xl: 2.5rem;
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    overflow-x: hidden;
+}
+
+/* Glassmorphism Utilities */
+.glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Global Transitions */
+.premium-transition {
+    transition: var(--transition-smooth);
+}
+
+/* Avatar Styling */
+.avatar-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Status Pill */
+.status-pill {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    &.active {
+        background: rgba(16, 185, 129, 0.1);
+        color: var(--status-active);
+    }
+
+    &.inactive {
+        background: rgba(244, 63, 94, 0.1);
+        color: var(--status-inactive);
+    }
+
+    &.idle {
+        background: rgba(245, 158, 11, 0.1);
+        color: var(--status-idle);
+    }
+
+    &::before {
+        content: '';
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: currentColor;
+    }
+}

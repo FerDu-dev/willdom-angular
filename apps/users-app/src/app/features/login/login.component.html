@@ -1,0 +1,92 @@
+<div class="login-page">
+    <div class="login-side left">
+        <div class="login-content">
+            <div class="logo-container">
+                <img src="assets/taiga-ui/icons/x.svg" alt="Logo" class="mini-logo"> <!-- Placeholder logo -->
+                <span class="logo-text">UsersSmartSave</span>
+            </div>
+
+            <div class="welcome-section">
+                <h1 class="welcome-title">Welcome Back</h1>
+                <p class="welcome-subtitle">Welcome Back, Please enter Your details</p>
+            </div>
+
+            <div class="auth-tabs">
+                <button class="tab-btn active">Sign In</button>
+                <button class="tab-btn">Signup</button>
+            </div>
+
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="custom-login-form">
+                @if (error$ | async; as error) {
+                <div class="custom-alert error">
+                    {{ error }}
+                </div>
+                }
+
+                <div class="input-group">
+                    <div class="input-wrapper">
+                        <div class="input-icon">
+                            <tui-icon icon="@tui.mail"></tui-icon>
+                        </div>
+                        <div class="input-field">
+                            <label>Email Address</label>
+                            <input type="email" formControlName="email" placeholder="example@gmail.com">
+                        </div>
+                        @if (loginForm.get('email')?.valid) {
+                        <div class="success-check">
+                            <tui-icon icon="@tui.check"></tui-icon>
+                        </div>
+                        }
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <div class="input-wrapper">
+                        <div class="input-icon">
+                            <tui-icon icon="@tui.lock"></tui-icon>
+                        </div>
+                        <div class="input-field">
+                            <label>Password</label>
+                            <input type="password" formControlName="password" placeholder="••••••••">
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn" [disabled]="loginForm.invalid || (loading$ | async)">
+                    @if (loading$ | async) {
+                    <span class="loading-spinner"></span>
+                    } @else {
+                    Continue
+                    }
+                </button>
+
+                <div class="divider">
+                    <span>Or Continue With</span>
+                </div>
+
+                <div class="social-login">
+                    <button type="button" class="social-btn google">
+                        <img src="https://www.google.com/favicon.ico" alt="Google">
+                    </button>
+                    <button type="button" class="social-btn apple">
+                        <img src="https://www.apple.com/favicon.ico" alt="Apple">
+                    </button>
+                    <button type="button" class="social-btn facebook">
+                        <img src="https://www.facebook.com/favicon.ico" alt="Facebook">
+                    </button>
+                </div>
+            </form>
+
+            <div class="login-footer-text">
+                Join the millions of smart investors who trust us to manage their finances. Log in to access your
+                personalized dashboard, track your portfolio performance, and make informed investment decisions.
+            </div>
+        </div>
+    </div>
+
+    <div class="login-side right">
+        <div class="asset-container">
+            <img src="login-3d.png" alt="Premium Asset" class="floating-asset">
+        </div>
+    </div>
+</div>

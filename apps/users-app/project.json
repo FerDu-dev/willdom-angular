@@ -8,7 +8,9 @@
   "targets": {
     "build": {
       "executor": "@angular/build:application",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/users-app",
         "browser": "apps/users-app/src/main.ts",
@@ -17,14 +19,19 @@
           {
             "glob": "**/*",
             "input": "apps/users-app/public"
+          },
+          {
+            "glob": "**/*.svg",
+            "input": "node_modules/@taiga-ui/icons/src",
+            "output": "assets/taiga-ui/icons"
           }
         ],
-        "styles": ["apps/users-app/src/styles.css"],
-        "server": "apps/users-app/src/main.server.ts",
-        "ssr": {
-          "entry": "apps/users-app/src/server.ts"
-        },
-        "outputMode": "server"
+        "polyfills": [
+          "zone.js"
+        ],
+        "styles": [
+          "apps/users-app/src/styles.scss"
+        ]
       },
       "configurations": {
         "production": {

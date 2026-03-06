@@ -1,0 +1,46 @@
+<div class="modal-detail">
+    <div class="profile-header">
+        <div class="header-main">
+            @if (config.avatarKey) {
+            <img [src]="'https://i.pravatar.cc/150?u=' + data.id" alt="Avatar" class="avatar-lg">
+            }
+            <div class="meta">
+                <h1 class="title">{{ config.title }}</h1>
+                @if (config.tagKey) {
+                <span class="tag">@{{ resolveKey(data, config.tagKey) }}</span>
+                }
+                @if (config.descriptionKey) {
+                <span class="description">{{ resolveKey(data, config.descriptionKey) }}</span>
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="sections-container">
+        @for (section of config.sections; track section.title) {
+        <div class="detail-section">
+            <h3 class="section-title">{{ section.title }}</h3>
+            <div class="rows">
+                @for (row of section.rows; track row.label) {
+                <div class="data-row">
+                    <span class="label">{{ row.label }}</span>
+                    @if (row.isLink) {
+                    <a [href]="(row.linkPrefix || '') + resolveKey(data, row.key)" target="_blank" class="value link">
+                        {{ resolveKey(data, row.key) }}
+                    </a>
+                    } @else {
+                    <span class="value" [class.italic]="row.isItalic">
+                        {{ resolveKey(data, row.key) }}
+                    </span>
+                    }
+                </div>
+                }
+            </div>
+        </div>
+        }
+    </div>
+
+    <div class="actions">
+        <button class="primary-btn" (click)="close()">Close Details</button>
+    </div>
+</div>
