@@ -63,32 +63,4 @@ To run this project locally, ensure you have **Node.js** installed (version 18 o
 
 ---
 
-## 📦 Git Guide: Upload to `willdom-angular`
-
-Follow these steps to initialize your local repository and push it to GitHub/GitLab:
-
-1. **Initialize Git**:
-   ```bash
-   git init
-   ```
-2. **Add all files**:
-   ```bash
-   git add .
-   ```
-3. **First Commit**:
-   ```bash
-   git commit -m "feat: initial commit - complete modular architecture with persistent auth"
-   ```
-4. **Add Remote** (Replace with your real URL):
-   ```bash
-   git remote add origin https://github.com/YOUR_USERNAME/willdom-angular.git
-   ```
-5. **Push Changes**:
-   ```bash
-   git branch -M main
-   git push -u origin main
-   ```
-
----
-
 *Developed with ❤️ to demonstrate superior technical Frontend skills.*
